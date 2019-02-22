@@ -1,0 +1,10 @@
+body{
+backgroun-color: #0f121f;
+background-image: url(index2.jpeg);
+background-repeat-y: no-repeat;
+color: #fff;
+}
+h1,h2,h3,h4,h5{
+font-weight: normal;
+margin:0;
+}
