@@ -7,8 +7,8 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request,user)
-            return redirect('articles:list')
+            #login(request,user)
+            return redirect('accounts:login')
     else:
         form = UserCreationForm()
     return render(request,'accounts/signup.html',{'form':form})
@@ -21,8 +21,10 @@ def login_view(request):
             login(request,user)
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
+            else:
+                return redirect('articles:list')
         else:
-            return redirect('articles:list')
+            return redirect('accounts:login')
     else:
         form = AuthenticationForm()
     return render(request,'accounts/login.html',{'form':form})
